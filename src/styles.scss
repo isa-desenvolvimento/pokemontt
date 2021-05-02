@@ -1,0 +1,86 @@
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+:root{
+  --cyan-green: #65dfc9;
+  --cyan: #6cdbeb;
+  --white: #fff;
+  --gray-light: rgba(255, 255, 255, 0.7);
+  --gray-middle:  rgba(255, 255, 255, 0.3);
+  --gray: #4d5156;
+  --gray-middle-default: #dee2e6;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right top, var(--cyan-green), var(--cyan));
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 400;
+  font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@mixin glass($width,  $height: 10rem, $display: flex, $text: left) {
+    width: $width;
+    height: $height;
+    background: linear-gradient(to right bottom, var(--gray-light), var(--gray-middle));
+    border-radius: 0.3rem;
+    backdrop-filter: blur(2rem);
+    padding: 0.5rem;
+    display: $display;
+    gap: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    color:  var(--gray);
+    text-align: $text;
+}
+
+  @mixin table-child() {
+    tr:nth-child(even) {
+      background-color: var(--gray-middle-default);
+    }
+
+    td, th {
+      border: 1px solid var(--gray-middle-default);
+      text-align: left;
+      padding: 8px;
+    }
+  }
+
+.modal-content {
+    width: 100%;
+    font-size: 0.8rem;
+    color: var(--gray);
+    text-align: center;
+    background-color: var(--gray-middle);
+    padding: 1rem !important;
+    align-items: center;
+
+    .modal-header{
+      margin-bottom: 1rem;
+      border-bottom: none;
+      width: 90%;
+
+      .close {
+        margin-left: auto;
+      }
+    }
+
+    .modal-body {
+      width: 100%;
+
+      table {
+        width: 100%;
+      }
+    }
+
+    @include table-child();
+  }

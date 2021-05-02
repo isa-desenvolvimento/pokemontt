@@ -1,0 +1,72 @@
+@import '../../../styles.scss';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .glass {
+    @include glass(40%, column, auto, center);
+    cursor: default;
+
+    h1 {
+      margin-bottom: 0.5em;
+      font-size: 2rem;
+    }
+
+    .description {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      .glass-description{
+        @include glass(auto, column, auto, center);
+        cursor: default;
+
+        @include table-child();
+
+      }
+
+      table {
+        width: 100%;
+        margin-top: 1rem;
+
+        .attack {
+          cursor: pointer;
+
+          &:hover {
+            filter: brightness(0.9);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    display: block;
+    text-align: center;
+    
+    .glass {
+      margin-top: 1rem; 
+      width: 100%;
+
+      .description {
+        display: block;
+
+        .glass-description {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="container-pokemon">
+ <app-search (onSubmit)="onSubmit($event)"></app-search>
+  <ol  id="list-pokemon" class="wrapper ">
+    <li  [routerLink]="['/pokemon']" [queryParams]="{ id: pokemon.id}" *ngFor="let pokemon of pokemons" class="glass">
+    <img [lazyLoad]="pokemon.images.large" class="img-pokemon-pokemons">
+        <div class="glass-description">
+            <h5>{{'ID' | translate}}: {{pokemon.id}} </h5>
+            <h5>{{'NAME' | translate}}: {{pokemon.name}} </h5>
+            <h5>{{'TYPE' | translate}}: {{pokemon.types}} </h5>
+        </div>
+    </li>
+  </ol>
+  <owl-carousel-o [options]="customOptions" class="container-mobile">
+    <ng-container *ngFor="let pokemon of pokemons">
+      <ng-template carouselSlide [id]="pokemon.id" >
+        <img [src]="pokemon.images.large" [alt]="pokemon.name" [title]="pokemon.name" [routerLink]="['/pokemon']" [queryParams]="{ id: pokemon.id}">
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
